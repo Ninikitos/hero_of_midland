@@ -1,4 +1,5 @@
 class Character():
+    """Base class for hero and all monsters."""
     name: str
     description: str
     strength: int
@@ -22,6 +23,21 @@ class Character():
                  position: list,
                  sprite: str
                  ):
+        """
+        Initialize a character with basic stats and visuals.
+
+        Args:
+            name (str): Character's name.
+            description (str): Short bio or role info.
+            strength (int): Physical power.
+            intellect (int): Magical power.
+            agility (int): Attack speed or chance to dodge.
+            hp (int): Health points.
+            mana (int): Magic points.
+            movement_speed (float): Units moved per turn.
+            position: [x, y] coordinates on the map.
+            sprite (str): Sprite image path.
+        """
         self.name = name
         self.description = description
         self.strength = strength
@@ -34,13 +50,21 @@ class Character():
         self.sprite = sprite
 
     def attack(self) -> int:
+        """Perform an attack and return damage dealt."""
         pass
 
-    def move(self) -> int:
+    def move(self, movement_speed: float, position: list) -> int:
+        """Move the character based on movement speed."""
         pass
 
     def die(self):
+        """Handle death logic (animation, cleanup, etc.)."""
         pass
 
     def is_alive(self) -> bool:
+        """Return True if character still has HP."""
+        pass
+
+    def collect_loot(self, monster) -> list:
+        """Collect items dropped from monster."""
         pass

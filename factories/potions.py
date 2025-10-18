@@ -43,7 +43,7 @@ class StatPotion(Potion):
         super().__init__(potion_title='Stats Potion', potion_value=2)
 
     def apply(self, hero, value: int):
-        """Increase all stats by 2."""
+        """Increase all stats by value."""
         hero.strength += value
         hero.intellect += value
         hero.agility += value
