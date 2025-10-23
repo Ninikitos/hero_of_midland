@@ -1,0 +1,4 @@
+import pygame
+
+WIDTH, HEIGHT = 1720, 1080
+TILE_SIZE = 24
