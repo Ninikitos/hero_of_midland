@@ -1,4 +1,5 @@
-from character import Character
+import pygame
+from .character import Character
 
 
 class Monster(Character):
@@ -14,7 +15,8 @@ class Monster(Character):
                  mana: int,
                  movement_speed: float,
                  position: list,
-                 sprite: str):
+                 sprite: str,
+                 groups: list):
         super().__init__(
             name,
             description,
@@ -25,7 +27,8 @@ class Monster(Character):
             mana,
             movement_speed,
             position,
-            sprite)
+            sprite,
+            groups)
         """
         Initialize a monster with basic stats and visuals.
 
@@ -43,6 +46,8 @@ class Monster(Character):
             sprite (str): Sprite image path.
         """
         self.rank = rank
+        self.image = pygame.image.load(sprite).convert_alpha()
+        self.rect = self.image.get_rect(center=self.position)
 
     def drop_loot(self) -> str:
         """Drop a piece of equipment."""

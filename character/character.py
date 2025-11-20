@@ -1,15 +1,8 @@
-class Character():
+import pygame
+
+
+class Character(pygame.sprite.Sprite):
     """Base class for hero and all monsters."""
-    name: str
-    description: str
-    strength: int
-    intellect: int
-    agility: int
-    hp: int
-    mana: int
-    movement_speed: float
-    position: list
-    sprite: str
 
     def __init__(self,
                  name: str,
@@ -20,8 +13,9 @@ class Character():
                  hp: int,
                  mana: int,
                  movement_speed: float,
-                 position: list,
-                 sprite: str
+                 position: list | tuple,
+                 image: str,
+                 groups: list,
                  ):
         """
         Initialize a character with basic stats and visuals.
@@ -35,9 +29,12 @@ class Character():
             hp (int): Health points.
             mana (int): Magic points.
             movement_speed (float): Units moved per turn.
-            position: [x, y] coordinates on the map.
-            sprite (str): Sprite image path.
+            position: (x, y) coordinates on the map.
+            image (str): Sprite image path.
+            groups (list): Sprite group on the map.
         """
+        super().__init__(*groups)
+
         self.name = name
         self.description = description
         self.strength = strength
@@ -47,7 +44,7 @@ class Character():
         self.mana = mana
         self.movement_speed = movement_speed
         self.position = position
-        self.sprite = sprite
+        self.image = image
 
     def attack(self) -> int:
         """Perform an attack and return damage dealt."""
