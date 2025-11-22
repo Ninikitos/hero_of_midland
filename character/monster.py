@@ -47,6 +47,7 @@ class Monster(Character):
         """
         self.rank = rank
         self.image = pygame.image.load(sprite).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (150, 150))
         self.rect = self.image.get_rect(center=self.position)
 
     def drop_loot(self) -> str:

@@ -55,6 +55,7 @@ class Hero(Character):
         self.specialization = specialization
         self.inventory = inventory
         self.image = pygame.image.load(sprite).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (100, 100))
         self.rect = self.image.get_rect(center=self.position)
         self.target = None
 
